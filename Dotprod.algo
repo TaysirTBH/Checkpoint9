@@ -1,4 +1,4 @@
-PROCEDURE dot_product(n: INTEGER,VAR  V1 : ARRAY_OF INTEGER, VAR V2 : ARRAY_OF INTEGER)
+PROCEDURE dot_product(n:INTEGER, V1 : ARRAY_OF INTEGER,V2 : ARRAY_OF INTEGER,VAR ps:INTEGER)
 VAR
     i:INTEGER;
     ps : INTEGER :=0;
@@ -17,7 +17,7 @@ END
 ALGORITHM Dot_Product
 VAR
     Vectors : ARRAY_OF ARRAY_OF INTEGER;
-    i,j,n,m : INTEGER;
+    i,j,n,m,ps : INTEGER;
 BEGIN
     Read(n); 
     Read(m);
@@ -29,7 +29,8 @@ BEGIN
 
     FOR i FROM 0 TO m-1 DO
         FOR j FROM i+1 TO m-1 DO
-            if(dot_product(n,Vectors[i],Vectors[j])=0)
+            ps=dot_product(n,Vectors[i],Vectors[j]);
+            if(ps=0)
                 Write(Vectors[i], 'and', Vectors[j], 'are orthogonal' )
         END_FOR
         
